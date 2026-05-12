@@ -1,6 +1,7 @@
 const contactForm = document.getElementById('contactForm');
 
 if (contactForm) {
+    const submitButton = contactForm.querySelector('button[type="submit"]');
     const fields = {
         name: {
             input: document.getElementById('name'),
@@ -110,7 +111,7 @@ if (contactForm) {
         });
     });
 
-    contactForm.addEventListener('submit', (event) => {
+    contactForm.addEventListener('submit', async (event) => {
         try {
             event.preventDefault();
 
@@ -122,14 +123,44 @@ if (contactForm) {
                 return;
             }
 
-            formStatus.textContent = 'Your message is valid and ready to send.';
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.textContent = 'Sending...';
+            }
+
+            formStatus.textContent = 'Sending your message...';
+            formStatus.className = 'form-status';
+
+            const formData = new FormData(contactForm);
+            formData.append('_subject', formData.get('subject'));
+            formData.append('_captcha', 'false');
+            formData.append('_template', 'table');
+
+            const response = await fetch(contactForm.action, {
+                method: contactForm.method,
+                body: formData,
+                headers: {
+                    Accept: 'application/json'
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error(`Email request failed with status ${response.status}`);
+            }
+
+            formStatus.textContent = 'Your message was sent successfully.';
             formStatus.className = 'form-status form-status-success';
             contactForm.reset();
             Object.keys(fields).forEach((fieldName) => setFieldState(fields[fieldName], ''));
         } catch (error) {
             console.error('Form submission handling failed:', error);
-            formStatus.textContent = 'Something went wrong. Please try again.';
+            formStatus.textContent = 'The message could not be sent. Please try again.';
             formStatus.className = 'form-status form-status-error';
+        } finally {
+            if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Send Message';
+            }
         }
     });
 }
