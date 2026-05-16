@@ -164,3 +164,24 @@ if (contactForm) {
         }
     });
 }
+
+const projectsToggleBtn = document.getElementById('projectsToggleBtn');
+const projectsSection = document.getElementById('projectsSection');
+const projectDetails = document.querySelectorAll('.project-details');
+
+if (projectsToggleBtn && projectDetails.length > 0) {
+    projectsToggleBtn.addEventListener('click', () => {
+        const shouldOpenAll = [...projectDetails].some((detail) => !detail.open);
+
+        projectDetails.forEach((detail) => {
+            detail.open = shouldOpenAll;
+        });
+
+        projectsToggleBtn.textContent = shouldOpenAll ? 'Hide Project Info' : 'More Project Info';
+        projectsToggleBtn.setAttribute('aria-expanded', String(shouldOpenAll));
+
+        if (!shouldOpenAll && projectsSection) {
+            projectsSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    });
+}
