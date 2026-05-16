@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mitchellbennett94.github.io/PersonalPortfolio-main/sitemap.xml

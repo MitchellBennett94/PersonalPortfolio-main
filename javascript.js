@@ -171,17 +171,25 @@ const projectDetails = document.querySelectorAll('.project-details');
 
 if (projectsToggleBtn && projectDetails.length > 0) {
     projectsToggleBtn.addEventListener('click', () => {
-        const shouldOpenAll = [...projectDetails].some((detail) => !detail.open);
+        try {
+            const shouldOpenAll = [...projectDetails].some((detail) => !detail.open);
 
-        projectDetails.forEach((detail) => {
-            detail.open = shouldOpenAll;
-        });
+            projectDetails.forEach((detail) => {
+                detail.open = shouldOpenAll;
+            });
 
-        projectsToggleBtn.textContent = shouldOpenAll ? 'Hide Project Info' : 'More Project Info';
-        projectsToggleBtn.setAttribute('aria-expanded', String(shouldOpenAll));
+            projectsToggleBtn.textContent = shouldOpenAll ? 'Hide Project Info' : 'More Project Info';
+            projectsToggleBtn.setAttribute('aria-expanded', String(shouldOpenAll));
 
-        if (!shouldOpenAll && projectsSection) {
-            projectsSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            if (!shouldOpenAll && projectsSection) {
+                try {
+                    projectsSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } catch (scrollError) {
+                    console.warn('Scroll to projects section failed:', scrollError);
+                }
+            }
+        } catch (error) {
+            console.error('Failed to toggle project details:', error);
         }
     });
 }

@@ -1,3 +1,10 @@
+/* Center main content only on homepage */
+.homepage-center {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .profile-image {
     width: 150px;
     height: 150px;
@@ -58,6 +65,8 @@ footer {
     background: linear-gradient(135deg, #0f263b 0%, #1a3a52 100%);
     color: rgb(255, 255, 255);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: auto;
+    width: 100%;
 }
 
 .footer-icons ul {
@@ -73,11 +82,12 @@ footer {
     display: inline; /* Ensure list items are inline elements */
 }
 
+/* Make footer icons smaller for all pages */
 .footer-icons a {
-    width: 132px;
-    height: 132px;
+    width: 60px;
+    height: 60px;
     display: inline-flex;
-    filter: drop-shadow(0 10px 18px rgba(121, 188, 243, 0.36));
+    filter: drop-shadow(0 6px 12px rgba(121, 188, 243, 0.28));
 }
 
 .footer-icons img {
@@ -86,8 +96,8 @@ footer {
     object-fit: cover;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border-radius: 50%;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-    padding: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+    padding: 3px;
     background-color: #ffffff;
 }
 
@@ -98,7 +108,13 @@ footer {
 
 
 /* Background image for the entire page */
+html {
+    min-height: 100%;
+}
 body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     background-image: url('images/abstractBackG.avif');
     background-repeat: no-repeat;
     background-size: cover;
@@ -352,6 +368,21 @@ button:active {
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.experience-item > *:not(ul):not(ol) {
+    text-align: center;
+}
+
+.experience-item ul, .experience-item ol {
+    text-align: left;
+    display: block;
+    margin-left: 1.2em;
 }
 
 .experience-item:hover {
@@ -418,6 +449,23 @@ button:active {
 
 #projectsToggleBtn {
     min-width: 220px;
+    background: linear-gradient(135deg, #79bcf3 0%, #2a74ad 100%);
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    border-radius: 999px;
+    box-shadow: 0 8px 24px 0 rgba(121, 188, 243, 0.36), 0 2px 8px 0 rgba(42, 116, 173, 0.18);
+    filter: drop-shadow(0 6px 12px rgba(121, 188, 243, 0.28));
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 1;
+}
+
+#projectsToggleBtn:hover, #projectsToggleBtn:focus {
+    background: linear-gradient(135deg, #a8d8ff 0%, #79bcf3 100%);
+    color: #18466e;
+    box-shadow: 0 12px 32px 0 rgba(121, 188, 243, 0.45), 0 4px 16px 0 rgba(42, 116, 173, 0.22);
+    filter: drop-shadow(0 10px 18px rgba(121, 188, 243, 0.36));
 }
 
 .project-image-slot {
@@ -472,11 +520,12 @@ button:active {
 .education-columns {
     display: flex;
     gap: 2rem;
-    align-items: flex-start;
+    align-items: stretch;
+    width: 100%;
 }
 
 .education-column {
-    flex: 1;
+    flex: 1 1 0;
     text-align: center;
     padding: 1.5rem;
     background-color: #ffffff;
@@ -484,6 +533,7 @@ button:active {
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 0;
 }
 
 .education-column:hover {
