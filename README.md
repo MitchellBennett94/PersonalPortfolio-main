@@ -1,68 +1,89 @@
-# Mitchell Bennett - Software Developer Portfolio
+# Mitchell Bennett — Software Developer Portfolio
 
-A professional portfolio website showcasing software development skills, projects, experience, and contact information.
+A personal portfolio website showcasing software development projects, professional experience, technical skills, and contact information.
 
-## Overview
+## Live Site
 
-This is a personal portfolio website for Mitchell Bennett, a dedicated software developer passionate about creating efficient and user-friendly applications. The portfolio highlights technical expertise, professional experience, completed projects, and provides a way for visitors to get in touch.
+[mitchellbennett94.github.io/PersonalPortfolio-main](https://mitchellbennett94.github.io/PersonalPortfolio-main/index.html)
 
-## Features
-
-- **Home Page** - Introduction and professional overview
-- **Experience & Projects** - Detailed work history, skills, education, and project showcase
-- **Contact Page** - Contact form and social media links
-- **Responsive Design** - Mobile-friendly layout using CSS
-- **Professional Styling** - Clean and modern user interface
+---
 
 ## Pages
 
-### index.html
-Main landing page featuring:
-- Professional introduction
-- Brief biography
-- Personal interests and hobbies
-- Social media links (LinkedIn, GitHub, Yahoo Mail)
-- Navigation to other sections
+| File | Description |
+|---|---|
+| `index.html` | Home — profile card, bio, and personal interests |
+| `experience.html` | Projects, skills, education, and work history |
+| `contact.html` | Contact form with validation |
+| `404.html` | Custom 404 error page |
 
-### experience.html
-Experience and projects page featuring:
-- Software development projects (Java Adventure Game)
-- Professional work experience
-- Technical skills
-- Education background
-- Detailed project descriptions
+---
 
-### contact.html
-Contact page featuring:
-- Contact form for inquiries
-- Form validation
-- Professional contact information
-- Links to social media profiles
+## Features
 
-## Technologies Used
+- **Project Showcase** — Scrollable project cards with image previews and expandable detail panels (toggled via "More Project Info" button)
+- **Contact Form** — Client-side validation with per-field error messages and async submission via FormSubmit
+- **Responsive Design** — Mobile-friendly layout with media queries
+- **Sticky Navigation** — Nav bar stays at the top while scrolling
+- **Footer at Bottom** — Footer pinned to the bottom of the viewport using flexbox
+- **SEO Optimized** — Open Graph, Twitter Card, JSON-LD structured data, canonical links, `robots.txt`, and `sitemap.xml`
+- **Exception Handling** — All JavaScript interactions wrapped in try/catch with user-facing error feedback
 
-- **HTML5** - Page structure and content
-- **CSS** - Styling and responsive design
-- **JavaScript** - Optional interactivity
-- **Responsive Web Design** - Mobile and desktop compatibility
+---
 
-## Project Example
+## Tech Stack
 
-### Java Adventure Game
-A text-based adventure game developed in Java featuring:
-- Multiple levels and character classes
-- Inventory system
-- Object-oriented programming principles
-- Game logic and player interaction management
+- **HTML5** — Semantic page structure
+- **CSS3** — External stylesheet (`style.css`), flexbox layout, CSS custom properties, responsive media queries
+- **JavaScript (ES6+)** — External script (`javascript.js`), async/await fetch, DOM manipulation, form validation
+
+---
+
+## Projects Featured
+
+| Project | Tech |
+|---|---|
+| Mage Medic: Unicorn Rescue | Java, Swing |
+| Update My Research | HTML, CSS, JavaScript |
+| Explore Idaho Travel Guide | Bootstrap, HTML, CSS, JavaScript |
+| Garden Tracker Application | HTML, CSS, JavaScript, Vue.js |
+| Lookbook (E-Commerce) | HTML, CSS, JavaScript, Vue.js |
+
+---
+
+## File Structure
+
+```
+PersonalPortfolio-main/
+├── index.html
+├── experience.html
+├── contact.html
+├── 404.html
+├── style.css
+├── javascript.js
+├── robots.txt
+├── sitemap.xml
+├── README.md
+└── images/
+    ├── profilePicture.jpg
+    ├── abstractBackG.avif
+    ├── backgroundCracks.avif
+    ├── laptopBackG.avif
+    ├── secBackG.avif
+    └── [project images]
+```
+
+---
 
 ## Getting Started
 
-1. Open `index.html` in a web browser to view the portfolio
-2. Navigate through the site using the navigation menu
-3. Explore projects and experience sections
-4. Use the contact form to get in touch
+1. Clone or download the repository
+2. Open `index.html` in any modern web browser
+3. No build tools or dependencies required
 
-## Future changes
-I would like to make the projects into an image that has a drop down of details keeping screen easy to read but with deeper content exploration.
-The words could be revised to fit my life and resume plus giving clearer flow through page and getting rid of any redundant information.
-The email could also connect to my personal infomration. Unless the other version then forms has different info then that will be as learned.
+---
+
+## Contact
+
+- **LinkedIn:** [mitchell-bennett-9aa694188](https://www.linkedin.com/in/mitchell-bennett-9aa694188/)
+- **GitHub:** [MitchellBennett94](https://github.com/MitchellBennett94)
