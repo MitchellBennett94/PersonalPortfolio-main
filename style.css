@@ -396,33 +396,50 @@ button:active {
 .project-slots {
     display: flex;
     flex-wrap: nowrap;
+    flex: 1;
     gap: 1rem;
     overflow-x: auto;
     margin-bottom: 1.5rem;
     padding-bottom: 0.4rem;
     scroll-behavior: smooth;
-    scrollbar-width: thin;
-    scrollbar-color: #79bcf3 #e8eef8;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
-/* WebKit scrollbar styling */
+/* Hide scrollbar when using arrow controls */
 .project-slots::-webkit-scrollbar {
-    height: 8px;
+    display: none;
 }
 
-.project-slots::-webkit-scrollbar-track {
-    background: #e8eef8;
-    border-radius: 4px;
+.projects-scroll-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
 }
 
-.project-slots::-webkit-scrollbar-thumb {
-    background: #79bcf3;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
+.projects-scroll-btn {
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #ffffff;
+    background: linear-gradient(135deg, #2a74ad 0%, #18466e 100%);
+    box-shadow: 0 8px 18px rgba(24, 70, 110, 0.28);
+    cursor: pointer;
+    flex-shrink: 0;
 }
 
-.project-slots::-webkit-scrollbar-thumb:hover {
-    background: #335188;
+.projects-scroll-btn:hover,
+.projects-scroll-btn:focus {
+    background: linear-gradient(135deg, #79bcf3 0%, #2a74ad 100%);
+    box-shadow: 0 10px 22px rgba(42, 116, 173, 0.32);
 }
 
 .project-slot {
@@ -674,6 +691,16 @@ button:active {
 
     .project-slot {
         min-width: 240px;
+    }
+
+    .projects-scroll-wrap {
+        gap: 0.5rem;
+    }
+
+    .projects-scroll-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 1.2rem;
     }
 
     .education-columns {

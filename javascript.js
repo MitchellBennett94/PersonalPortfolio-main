@@ -168,6 +168,29 @@ if (contactForm) {
 const projectsToggleBtn = document.getElementById('projectsToggleBtn');
 const projectsSection = document.getElementById('projectsSection');
 const projectDetails = document.querySelectorAll('.project-details');
+const projectSlots = document.getElementById('projectSlots');
+const projectsScrollLeft = document.getElementById('projectsScrollLeft');
+const projectsScrollRight = document.getElementById('projectsScrollRight');
+
+if (projectSlots && projectsScrollLeft && projectsScrollRight) {
+    const scrollAmount = () => Math.max(260, Math.floor(projectSlots.clientWidth * 0.8));
+
+    projectsScrollLeft.addEventListener('click', () => {
+        try {
+            projectSlots.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+        } catch (error) {
+            console.error('Failed to scroll projects left:', error);
+        }
+    });
+
+    projectsScrollRight.addEventListener('click', () => {
+        try {
+            projectSlots.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+        } catch (error) {
+            console.error('Failed to scroll projects right:', error);
+        }
+    });
+}
 
 if (projectsToggleBtn && projectDetails.length > 0) {
     projectsToggleBtn.addEventListener('click', () => {
